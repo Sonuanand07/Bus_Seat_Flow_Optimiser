@@ -74,3 +74,9 @@ export function generateBoardingSequence(bookings: Booking[]): BoardingSequence[
     Booking_ID: booking.Booking_ID,
   }));
 }
+
+export function sequenceToCSV(sequence: BoardingSequence[]): string {
+  const header = "Seq,Booking_ID";
+  const rows = sequence.map(item => `${item.Seq},${item.Booking_ID}`);
+  return [header, ...rows].join("\n");
+}
