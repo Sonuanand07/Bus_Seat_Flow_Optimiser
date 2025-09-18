@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+  # Welcome to your Bus Seat Flow Optimiser project
 
 
 Changes made via Lovable will be committed automatically to this repo.
