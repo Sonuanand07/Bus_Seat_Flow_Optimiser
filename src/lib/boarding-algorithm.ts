@@ -25,6 +25,18 @@ export function parseBookingFile(fileContent: string): Booking[] {
   return bookings;
 }
 
+export function parseCSVData(csv: string): Booking[] {
+  const lines = csv.trim().split("\n");
+  const bookings: Booking[] = [];
+  for (const line of lines) {
+    const [Booking_ID, SeatsStr] = line.split(/\s+/);
+    if (!Booking_ID || !SeatsStr) continue;
+    const Seats = SeatsStr.split(",").map(s => s.trim()).filter(Boolean);
+    bookings.push({ Booking_ID, Seats });
+  }
+  return bookings;
+}
+
 export function validateBookings(bookings: Booking[]): string[] {
   const errors: string[] = [];
   const seatSet = new Set<string>();
